@@ -1,0 +1,92 @@
+/* Navbar Grundlayout */
+.navbar {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dunkler Hintergrund */
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtiler Schatten */
+  position: sticky; /* Navbar bleibt oben */
+  top: 0; /* Fixiert an der oberen Kante */
+  z-index: 1000; /* Immer im Vordergrund */
+  padding: 0; /* Entfernt das Standard-Padding */
+  margin: 0; /* Entfernt das Standard-Margin */
+}
+
+/* Navbar Container */
+.navbar-container {
+  display: flex;
+  align-items: center; /* Vertikale Zentrierung */
+  justify-content: space-between; /* Logo links, Links und Button rechts */
+  margin: 0 auto; /* Zentriert die Navbar */
+  padding: 15px 10px; /* Minimaler Abstand links und rechts */
+  box-sizing: border-box; /* Padding beeinflusst nicht die Gesamtbreite */
+}
+
+/* Logo Styling */
+.navbar-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding-left: 10px; /* Minimaler Abstand vom linken Rand */
+}
+
+.navbar-logo:hover {
+  color: #007bff; /* Hover-Effekt */
+}
+
+/* Navbar Links Styling */
+.navbar-links {
+  list-style: none; /* Keine Aufzählungspunkte */
+  display: flex; /* Horizontal nebeneinander */
+  gap: 40px; /* Abstand zwischen Links */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #007bff; /* Textfarbe beim Hover ändern */
+  border-bottom: 2px solid #007bff; /* Unterstreichen beim Hover */
+}
+/* Button Styling */
+.navbar-btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column; /* Stapelt alle Elemente vertikal */
+    align-items: flex-start; /* Elemente links ausrichten */
+    gap: 15px; /* Abstand zwischen gestapelten Elementen */
+  }
+
+  .navbar-links {
+    flex-direction: column; /* Links vertikal ausrichten */
+    gap: 10px; /* Abstand zwischen Links */
+  }
+
+  .navbar-btn {
+    align-self: stretch; /* Button auf volle Breite */
+    text-align: center;
+  }
+}
