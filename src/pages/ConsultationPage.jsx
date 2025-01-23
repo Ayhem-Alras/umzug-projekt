@@ -3,28 +3,24 @@ import axios from "axios";
 import "./ConsultationPage.css";
 
 const ConsultationPage = () => {
-  // State für Formulardaten
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState(""); // Statusnachricht für Benutzer
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+  const [status, setStatus] = useState("");
 
-  // Funktion zum Aktualisieren des Formulars
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Funktion zum Absenden des Formulars
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Verhindert Seiten-Neuladen
-    setStatus("Senden..."); // Setzt den Status
+    e.preventDefault();
+    setStatus("Nachricht wird gesendet...");
 
     try {
-      // API-Anfrage an das Backend
-      await axios.post("http://localhost:5000/send", formData);
-      setStatus("Nachricht erfolgreich gesendet!");
-      setFormData({ name: "", email: "", message: "" }); // Formular zurücksetzen
+      const response = await axios.post("http://localhost:5000/send", formData);
+      setStatus(response.data.message);
+      setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error) {
-      console.error("Error sending email:", error);
+      console.error("Fehler:", error);
       setStatus("Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut.");
     }
   };
@@ -32,8 +28,7 @@ const ConsultationPage = () => {
   return (
     <div className="consultation-page">
       <h1>Jetzt kostenlos beraten</h1>
-      <p>Wir freuen uns, Ihnen bei Ihrem Anliegen zu helfen. Bitte füllen Sie das Formular aus oder kontaktieren Sie uns direkt!</p>
-      
+      <p>Bitte füllen Sie das Formular aus:</p>
       <form className="consultation-form" onSubmit={handleSubmit}>
         <label>
           Name:
@@ -58,6 +53,17 @@ const ConsultationPage = () => {
           />
         </label>
         <label>
+          Telefon:
+          <input
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="Ihre Telefonnummer"
+            required
+          />
+        </label>
+        <label>
           Nachricht:
           <textarea
             name="message"
@@ -69,12 +75,19 @@ const ConsultationPage = () => {
         </label>
         <button type="submit">Senden</button>
       </form>
-      <p>{status}</p> {/* Statusnachricht anzeigen */}
+      <p>{status}</p>
 
-      <div className="contact-details">
-        <p>Oder kontaktieren Sie uns direkt:</p>
-        <p>Email: <a href="ayhemalras@outlook.de">beratung@example.com</a></p>
-        <p>Telefon: <a href="tel:+491234567892">+49 123 456 7892</a></p>
+      {/* Kontaktinformationen deutlicher anzeigen */}
+      <div className="contact-highlight">
+        <h2>Kontaktieren Sie uns direkt</h2>
+        <p>
+          📧 <strong>Email:</strong>{" "}
+          <a href="mailto:umzug.de.nrw@gmail.com">umzug.de.nrw@gmail.com</a>
+        </p>
+        <p>
+          📞 <strong>Telefon:</strong>{" "}
+          <a href="tel:+4915751054032">+49 1575 1054032</a>
+        </p>
       </div>
     </div>
   );

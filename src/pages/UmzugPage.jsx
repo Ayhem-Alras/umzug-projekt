@@ -49,7 +49,7 @@ const UmzugPage = () => {
       <div className={styles.contactSection}>
         <h2>Kontaktieren Sie uns</h2>
         <p>
-          Email: <a href="mailto:umzug@example.com">umzug@example.com</a>
+          Email: <a href="umzug.de.nrw@gmail.com">umzug.de.nrw@gmail.com</a>
         </p>
         <p>
           Telefon: <a href="tel:+491234567891">+49 123 456 7891</a>

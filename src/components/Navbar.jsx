@@ -7,9 +7,8 @@ const Navbar = () => {
       <div className="navbar-container">
         {/* Logo immer links */}
         <Link to="/" className="navbar-logo navbar-logo-left">
-  Umzüge & Entrümpelung
-</Link>
-
+          Umzüge & Entrümpelung
+        </Link>
 
         {/* Navbar Links */}
         <ul className="navbar-links">
@@ -26,6 +25,12 @@ const Navbar = () => {
           <li>
             <Link to="/umzug" className="nav-link">
               Umzug
+            </Link>
+          </li>
+          <li>
+            {/* Neuer Menüpunkt für Über uns */}
+            <Link to="/impressum" className="nav-link">
+              Über Uns
             </Link>
           </li>
         </ul>

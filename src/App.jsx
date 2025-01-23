@@ -7,6 +7,8 @@ import EntruempelungPage from "./pages/EntruempelungPage.jsx";
 import UmzugPage from "./pages/UmzugPage.jsx";
 import ConsultationPage from "./pages/ConsultationPage.jsx";
 import WhatsAppButton from "./components/WhatsAppButton"; // WhatsApp-Button importieren
+import ImpressumPage from "./pages/ImpressumPage";
+import DatenschutzPage from "./pages/DatenschutzPage";
 
 import "./App.css";
 
@@ -78,10 +80,28 @@ function App() {
               <ConsultationPage />
             </Layout>
           }
-        />
-      </Routes>
-    </Router>
-  );
+
+         /* Neue Routen für Impressum und Datenschutz */
+      />
+        <Route
+        path="/impressum"
+        element={
+          <Layout>
+            <ImpressumPage />
+          </Layout>
+        }
+      />
+      <Route
+        path="/datenschutz"
+        element={
+          <Layout>
+            <DatenschutzPage />
+          </Layout>
+        }
+      />
+    </Routes>
+  </Router>
+);
 }
 
 export default App;

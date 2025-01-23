@@ -1,82 +1,298 @@
+/* General Styling for HeroSection */
 .hero {
   display: flex;
-  justify-content: center;
-  align-items: center; /* Align items horizontally to the center */
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
   margin: 0 auto;
   max-width: 1600px;
   width: 100%;
   box-sizing: border-box;
-  gap: 100px; /* Abstand zwischen den linken und rechten Seiten */
 }
 
-.hero-left,
-.hero-right {
-  flex: 1;
+/* Header Section with Images */
+.hero-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Abstand zwischen den Bildern */
+  margin-bottom: 30px; /* Abstand zur nächsten Sektion */
+}
+
+.hero-header img {
+  width: 50%; /* Bilder teilen sich gleichmäßig den Platz */
+  height: auto; /* Beibehaltung des Seitenverhältnisses */
+  border-radius: 10px; /* Abgerundete Ecken */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtile Schatten */
+}
+
+/* Styling for Hero Header Buttons */
+.hero-image-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Align content vertically to the center */
   text-align: center;
-  min-height: 400px; /* Ensures both sides have the same minimum height */
-  box-sizing: border-box;
 }
 
-.hero-left {
-  padding-right: 20px;
+.hero-image-container img {
+  width: 100%;
+  max-width: 800px; /* Maximale Breite der Bilder */
+  height: auto;
+  margin-bottom: 15px; /* Abstand zwischen Bild und Button */
 }
-
-.hero-right {
-  padding-left: 20px;
-}
-
-.hero-right .hero-btn {
-  margin-left: 30px; /* Verschiebt den Button minimal nach rechts */
-}
-
 
 .hero-btn {
   display: inline-block;
   background-color: #007bff;
   color: #fff;
-  padding: 15px 30px;
-  font-size: 1.5rem;
+  padding: 15px 30px; /* Größere Buttons für bessere Proportionen */
+  font-size: 1.2rem;
   font-weight: bold;
-  text-align: center;
   text-decoration: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin: auto 0; /* Ensures buttons align vertically with each other */
 }
 
 .hero-btn:hover {
   background-color: #0056b3;
 }
 
-.hero-image {
-  width: 100%; /* Bild passt sich an die Breite des Containers an */
-  max-width: 1000px; /* Maximale Breite für das Bild */
+/* Center Content Styling */
+.hero-center,
+.hero-due,
+.hero-full-service,
+.hero-additional-text,
+.hero-google-review,
+.hero-cities {
+  max-width: 1300px; /* Begrenzung der Breite */
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtiler Schatten */
+  text-align: center;
+}
+
+.hero-center ul,
+.hero-full-service ul,
+.hero-due ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 20px;
+}
+
+.hero-center ul li,
+.hero-full-service ul li,
+.hero-due ul li {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Google Review Section */
+.hero-google-review {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Volle Breite der Elternkomponente */
+  max-width: 800px; /* Begrenzung der maximalen Breite */
+  text-align: center;
+  box-sizing: border-box; /* Padding wird in die Breite einbezogen */
+}
+
+.hero-google-review .review-container {
+  display: flex;
+  flex-direction: column; /* Stapelt Inhalte vertikal */
+  align-items: center; /* Zentriert die Inhalte horizontal */
+  text-align: center;
+  gap: 15px; /* Abstand zwischen den Elementen */
+}
+
+.hero-google-review .review-header {
+  display: flex;
+  flex-direction: row; /* Titel und Logo nebeneinander (Standard) */
+  align-items: center;
+  justify-content: center; /* Zentriert den Inhalt */
+  gap: 10px; /* Platz zwischen Logo und Titel */
+}
+
+.google-logo {
+  width: 40px;
   height: auto; /* Beibehaltung des Seitenverhältnisses */
-  margin-bottom: 60px; /* Abstand zwischen Bild und Button */
-  border-radius: 10px; /* Abgerundete Ecken für ein modernes Design */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtile Schatten für das Bild */
-  object-fit: cover; /* Bild wird zugeschnitten, um die Dimensionen einzuhalten */
+}
+
+.review-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+}
+
+.review-rating {
+  font-size: 1rem;
+  color: #333;
+}
+
+.review-text {
+  margin: 10px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* Responsiveness for Tablets */
+@media (max-width: 768px) {
+  .hero-google-review {
+    padding: 15px; /* Weniger Innenabstand */
+  }
+
+  .hero-google-review .review-container {
+    gap: 10px; /* Weniger Abstand zwischen den Elementen */
+  }
+
+  .hero-google-review .review-header {
+    flex-direction: column; /* Titel und Logo werden gestapelt */
+    gap: 8px; /* Kleinerer Abstand zwischen Logo und Titel */
+  }
+
+  .review-title {
+    font-size: 1.2rem; /* Kleinere Schriftgröße für Titel */
+  }
+
+  .review-text {
+    font-size: 0.9rem; /* Kleinere Schriftgröße für Text */
+  }
+}
+
+/* Responsiveness for Mobile Devices */
+@media (max-width: 480px) {
+  .hero-google-review {
+    padding: 10px; /* Kompaktes Padding */
+  }
+
+  .google-logo {
+    width: 30px; /* Verkleinertes Logo */
+  }
+
+  .review-title {
+    font-size: 1rem; /* Noch kleinere Schriftgröße */
+  }
+
+  .review-text {
+    font-size: 0.8rem;
+  }
+
+  .review-header {
+    flex-direction: column; /* Logo und Titel untereinander */
+  }
+}
+
+
+/* Cities Section */
+.city-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Automatische Anpassung der Spalten */
+  gap: 15px; /* Abstand zwischen Spalten */
+}
+
+.city-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.city-grid ul li {
+  position: relative;
+  padding-left: 20px; /* Platz für den Punkt links vom Text */
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.city-grid ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #007bff;
+  font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-header {
+    flex-direction: column;
+    gap: 15px; /* Weniger Abstand zwischen Bildern */
+  }
+
+  .hero-header img {
+    width: 100%; /* Bilder füllen den verfügbaren Platz */
+    max-width: 500px; /* Begrenzung der maximalen Breite */
+  }
+
+  .hero-center,
+  .hero-full-service,
+  .hero-additional-text,
+  .hero-google-review,
+  .hero-cities {
+    padding: 15px;
+  }
+
+  .hero-btn {
+    padding: 10px 20px; /* Kleinere Buttons */
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .hero {
-    flex-direction: column; /* Stack elements vertically on smaller screens */
-    align-items: center;
+  .hero-header img {
+    width: 100%;
   }
 
-  .hero-left,
-  .hero-right {
+  .hero-center,
+  .hero-full-service,
+  .hero-additional-text,
+  .hero-google-review,
+  .hero-cities {
     padding: 10px;
-    min-height: auto; /* Dynamically adjust height for mobile */
+    font-size: 0.9rem;
   }
 
-  .hero-image {
-    max-width: 200px; /* Reduzierte Breite für mobile Geräte */
+  .hero-btn {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .city-grid {
+    gap: 10px; /* Weniger Abstand zwischen Spalten */
   }
 }
+
+@media (max-width: 480px) {
+  .hero-header img {
+    max-width: 100%; /* Volle Breite auf kleinen Geräten */
+  }
+
+  .hero-center,
+  .hero-due,
+  .hero-full-service,
+  .hero-additional-text,
+  .hero-google-review,
+  .hero-cities {
+    font-size: 0.8rem;
+  }
+
+  .hero-btn {
+    font-size: 0.8rem;
+    padding: 8px 15px;
+  }
+
+  .city-grid ul li {
+    font-size: 0.9rem;
+  }
+}
+

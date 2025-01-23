@@ -60,7 +60,7 @@ const EntruempelungPage = () => {
       <div className="contact-section">
         <h2>Kontaktieren Sie uns</h2>
         <p>
-          Email: <a href="mailto:entruempelung@example.com">entruempelung@example.com</a>
+          Email: <a href="umzug.de.nrw@gmail.com">umzug.de.nrw@gmail.com</a>
         </p>
         <p>
           Telefon: <a href="tel:+491234567890">+49 123 456 7890</a>

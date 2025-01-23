@@ -1,27 +1,109 @@
 .services {
-    padding: 50px 20px;
-    background: #fff;
-    text-align: center;
-  }
-  
+  padding: 40px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 2rem;
+  margin-bottom: 20px; /* Etwas mehr Abstand unter dem Titel */
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Dynamisch anpassbare Spalten */
+  gap: 20px; /* Lücke zwischen den Karten */
+  width: 100%; /* Container nimmt die volle Breite ein */
+  margin: 0 auto; /* Zentrierung */
+  box-sizing: border-box; /* Padding wird in die Breite einbezogen */
+}
+
+.service-card {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s ease;
+  width: 100%; /* Karten passen sich der Elternbreite an */
+  box-sizing: border-box; /* Padding und Border in Breite einbeziehen */
+}
+
+.service-card:hover {
+  transform: scale(1.05); /* Vergrößerung beim Hover */
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* Responsiveness für Tablets */
+@media (max-width: 1024px) {
   .services h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 1.8rem;
   }
-  
+
   .services-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px; /* Weniger Platz zwischen Karten */
   }
-  
+
   .service-card {
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    text-align: left;
+    padding: 15px; /* Weniger Innenabstand */
   }
-  
+}
+
+/* Responsiveness für Smartphones */
+@media (max-width: 768px) {
+  .services h2 {
+    font-size: 1.5rem;
+  }
+
+  .services-container {
+    grid-template-columns: 1fr; /* Alle Karten in einer Spalte */
+    gap: 15px; /* Weniger Abstand zwischen Karten */
+  }
+
+  .service-card {
+    padding: 15px; /* Weniger Innenabstand */
+    width: 100%; /* Karten füllen den verfügbaren Platz aus */
+  }
+
+  .service-card h3 {
+    font-size: 1.4rem; /* Leicht kleinere Überschrift */
+  }
+
+  .service-card p {
+    font-size: 1rem;
+  }
+}
+
+/* Responsiveness für sehr kleine Geräte */
+@media (max-width: 480px) {
+  .services {
+    padding: 20px 10px; /* Weniger Außenabstand */
+  }
+
+  .services h2 {
+    font-size: 1.3rem; /* Kleinere Überschrift */
+  }
+
+  .service-card {
+    padding: 10px; /* Weniger Innenabstand */
+    border-radius: 5px; /* Weniger abgerundete Ecken */
+  }
+
+  .service-card h3 {
+    font-size: 1.2rem; /* Kleinere Überschrift */
+  }
+
+  .service-card p {
+    font-size: 0.9rem; /* Kleinere Schriftgröße */
+  }
+}
