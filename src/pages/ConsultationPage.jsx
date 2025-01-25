@@ -16,11 +16,12 @@ const ConsultationPage = () => {
     setStatus("Nachricht wird gesendet...");
 
     try {
-      const response = await axios.post("http://localhost:5000/send", formData);
+      // Update this URL to the deployed backend URL
+      const response = await axios.post("https://backend-umzug.vercel.app/", formData);
       setStatus(response.data.message);
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error) {
-      console.error("Fehler:", error);
+      console.error("Fehler beim Senden der Nachricht:", error);
       setStatus("Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut.");
     }
   };
